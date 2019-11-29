@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Interface Tables</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></head>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 class="display-4">Hot Restaurant</h1>
+            <h3 class="lead">Current Reservations and Waiting List</h3>
+            <hr class="my-4">
+            <a class="btn btn-danger btn-lg" href="/reserve" role="button">Make Reservation</a>
+            <a class="btn btn-default btn-lg" href="/" role="button">Home</a>
+        </div>
+        <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Current Reservations
+                        </div>
+                        <div class="card-body" id='data'>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="footer">
+            <p>
+                <a href="/api/tables#">Clear Table</a>
+                 | 
+                <a href="/api/tables">API Table Link</a>
+                 | 
+                <a href="/api/waitlist">API Wait List</a>
+            </p>
+        </div>
+    </div>
+    <script>
+        $.get("/reserveData")
+            .then(function(data) {
+                // console.log(data);
+                data.forEach(element => {
+                    console.log(element);
+                });
+            });
+    
+    </script>
+</body>
+</html>
